@@ -1,0 +1,34 @@
+{
+	"zones": {
+		"zone2": {
+			"plant": "Tomatoes",
+
+			"minimum_Temp": 20,
+			"maximum_Temp": 25,
+			"water_level": 50,
+			"minimum_Humidity": 60,
+			"maximum_Humidity": 80
+		}
+	},
+	"telegram": {
+		"token": "780431995:AAFHKfKwhC31k23iYY4P96a7sXjZb8U4Dog",
+		"users": [{
+			"chat_id": 522064828,
+			"emergency": true
+		}, {
+			"chat_id": 522064827,
+			"emergency": true
+		}]
+	},
+	"freeboard": {
+		"IP": "192.168.1.2",
+		"port": "7070"
+	},
+	"broker": {
+		"IP": "192.168.1.2",
+		"port": 1883
+	},
+	"webapi": {
+		"url": "192.168.1.2:9090"
+	}
+}

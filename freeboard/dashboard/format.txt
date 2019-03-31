@@ -1,0 +1,176 @@
+{
+	"version": 1,
+	"allow_edit": false,
+	"plugins": [],
+	"panes": [{
+		"title": "",
+		"width": 1,
+		"row": {
+			"2": 1,
+			"3": 1,
+			"4": 1
+		},
+		"col": {
+			"2": 1,
+			"3": 1,
+			"4": 2
+		},
+		"col_width": 2,
+		"widgets": [{
+			"type": "highcharts-timeseries",
+			"settings": {
+				"blocks": 4,
+				"title": "Temperature",
+				"series1label": "Temperature",
+				"yaxis": "{\"title\":{\"text\" : \"Temperature\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
+				"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
+				"timeframe": 60,
+				"chartType": "area",
+				"series1": "datasources[\"zoneData\"][\"temperature\"][\"value\"]"
+			}
+		}, {
+			"type": "highcharts-timeseries",
+			"settings": {
+				"blocks": 4,
+				"title": "Humidity",
+				"series1label": "Humidity",
+				"series2label": "",
+				"yaxis": "{\"title\":{\"text\" : \"Humidity\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
+				"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
+				"timeframe": 60,
+				"series2": "",
+				"chartType": "area",
+				"series1": "datasources[\"zoneData\"][\"humidity\"][\"value\"]"
+			}
+		}]
+	}, {
+		"title": "Plant",
+		"width": 1,
+		"row": {
+			"2": 19,
+			"3": 1,
+			"4": 1
+		},
+		"col": {
+			"2": 1,
+			"3": 3,
+			"4": 1
+		},
+		"col_width": 1,
+		"widgets": [{
+			"type": "text_widget",
+			"settings": {
+				"animate": true,
+				"title": "",
+				"value": "datasources[\"zoneInfo\"][\"plant\"]",
+				"size": "regular"
+			}
+		}]
+	}, {
+		"width": 1,
+		"row": {
+			"2": 23,
+			"3": 5,
+			"4": 1
+		},
+		"col": {
+			"2": 1,
+			"3": 3,
+			"4": 4
+		},
+		"col_width": 1,
+		"widgets": [{
+			"type": "indicator",
+			"settings": {
+				"title": "Pump",
+				"on_text": "Pump On",
+				"value": "datasources[\"zoneData\"][\"pump\"][\"value\"]",
+				"off_text": "Pump Off"
+			}
+		}, {
+			"type": "indicator",
+			"settings": {
+				"off_text": "Sprinklers Off",
+				"on_text": "Sprinklers On",
+				"value": "datasources[\"zoneData\"][\"sprinklers\"][\"value\"]",
+				"title": "Sprinklers"
+			}
+		}, {
+			"type": "indicator",
+			"settings": {
+				"title": "Heater",
+				"on_text": "Heater On",
+				"value": "datasources[\"zoneData\"][\"heater\"][\"value\"]",
+				"off_text": "Heater Off"
+			}
+		}, {
+			"type": "indicator",
+			"settings": {
+				"off_text": "Cooler Off",
+				"on_text": "Cooler On",
+				"value": "datasources[\"zoneData\"][\"cooler\"][\"value\"]",
+				"title": "Cooler"
+			}
+		}, {
+			"type": "indicator",
+			"settings": {
+				"title": "Fan",
+				"on_text": "Fan On",
+				"value": "datasources[\"zoneData\"][\"fan\"][\"value\"]",
+				"off_text": "Fan Off"
+			}
+		}, {
+			"type": "indicator",
+			"settings": {
+				"title": "Humidifier",
+				"value": "datasources[\"zoneData\"][\"humidifier\"][\"value\"]",
+				"on_text": "Humidifier On",
+				"off_text": "Humidifier Off"
+			}
+		}]
+	}, {
+		"title": "Water Level",
+		"width": 1,
+		"row": {
+			"2": 19,
+			"3": 17,
+			"4": 5
+		},
+		"col": {
+			"2": 2,
+			"3": 3,
+			"4": 1
+		},
+		"col_width": 1,
+		"widgets": [{
+			"type": "gauge",
+			"settings": {
+				"units": "%",
+				"max_value": 100,
+				"min_value": 0,
+				"value": "datasources[\"zoneData\"][\"water\"][\"value\"]",
+				"title": ""
+			}
+		}]
+	}],
+	"datasources": [{
+		"name": "zoneData",
+		"type": "JSON",
+		"settings": {
+			"url": "http://webAPI:9090/zone2",
+			"use_thingproxy": false,
+			"refresh": 1,
+			"method": "GET"
+		}
+	}, {
+		"name": "zoneInfo",
+		"type": "JSON",
+		"settings": {
+			"url": "http://catalog:8080/zones/zone2",
+			"use_thingproxy": false,
+			"refresh": 2,
+			"method": "GET"
+		}
+	}],
+	"columns": 4
+}
